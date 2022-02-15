@@ -1,0 +1,1151 @@
+{
+	"info": {
+		"_postman_id": "688df397-00c4-4845-bdd2-9dbe30fb3d6f",
+		"name": "EZBox Media",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Najam Ul Saqib\",\r\n    \"email\": \"najamulsaqib@falconit.com\",\r\n    \"password\": \"12345678\",\r\n    \"confirmPassword\": \"12345678\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/admin/620a0a75f01bcc2a606a9c32",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"admin",
+								"620a0a75f01bcc2a606a9c32"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYyMGExZWRmMDc3NGMzMzNmNGUzMDNkMyIsIm5hbWUiOiJOYWphbSBVbCBTYXFpYiIsImVtYWlsIjoibmFqYW11bHNhcWliQGZhbGNvbml0LmNvbS5wayIsInBhc3N3b3JkIjoiJDJhJDEwJHp1a1FKRVZOMHBHUVJzZy5JbTg3eC5yek9MWG1kV3dBcDR4Vi8wVzBYN0JjR3JrTGpNUy51IiwiY3JlYXRlZEF0IjoiMjAyMi0wMi0xNFQwOToyMDozMS4wODZaIiwidXBkYXRlZEF0IjoiMjAyMi0wMi0xNFQwOTozMzowNS44MDhaIiwiX192IjowfSwiaWF0IjoxNjQ0ODMxNDQ3LCJleHAiOjE2NDUxOTE0NDd9.31OqH3bpVA52cX2CzTHjkfF3uaIFy9Pvu9_iq1gOV6E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Najam Ul Saqib\",\r\n    \"email\": \"najamulsaqib@falconit.com.pk\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/admin/620a1edf0774c333f4e303d3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"admin",
+								"620a1edf0774c333f4e303d3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/admin/620a0c721bb5a51850eff928",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"admin",
+								"620a0c721bb5a51850eff928"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"najamulsaqib@falconit.com.pk\",\r\n    \"password\": \"12345678\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "auth chk",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/auth",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Password",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"oldPassword\": \"123456789\",\r\n    \"newPassword\": \"12345678\",\r\n    \"confirmPassword\": \"12345678\"\r\n\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/auth/password/620a1edf0774c333f4e303d3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"password",
+								"620a1edf0774c333f4e303d3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forgot password",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/auth/forgot/najamulsaqib@faalconit.com.pk",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"forgot",
+								"najamulsaqib@faalconit.com.pk"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Navigation",
+			"item": [
+				{
+					"name": "Get Data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/nav",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"nav"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create / Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYyMGExZWRmMDc3NGMzMzNmNGUzMDNkMyIsIm5hbWUiOiJOYWphbSBVbCBTYXFpYiIsImVtYWlsIjoibmFqYW11bHNhcWliQGZhbGNvbml0LmNvbS5wayIsInBhc3N3b3JkIjoiJDJhJDEwJHp1a1FKRVZOMHBHUVJzZy5JbTg3eC5yek9MWG1kV3dBcDR4Vi8wVzBYN0JjR3JrTGpNUy51IiwiY3JlYXRlZEF0IjoiMjAyMi0wMi0xNFQwOToyMDozMS4wODZaIiwidXBkYXRlZEF0IjoiMjAyMi0wMi0xNFQwOTozMzowNS44MDhaIiwiX192IjowfSwiaWF0IjoxNjQ0ODMxNDQ3LCJleHAiOjE2NDUxOTE0NDd9.31OqH3bpVA52cX2CzTHjkfF3uaIFy9Pvu9_iq1gOV6E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/HP/Downloads/bb-ww.jpg"
+								},
+								{
+									"key": "blog",
+									"value": "http://localhost:5000/api/nav",
+									"type": "text"
+								},
+								{
+									"key": "forum",
+									"value": "http://localhost:5000/api/nav",
+									"type": "text"
+								},
+								{
+									"key": "facebook",
+									"value": "http://localhost:5000/api/nav",
+									"type": "text"
+								},
+								{
+									"key": "instagram",
+									"value": "http://localhost:5000/api/nav",
+									"type": "text"
+								},
+								{
+									"key": "whatsapp",
+									"value": "123456789012",
+									"type": "text"
+								},
+								{
+									"key": "linkedIn",
+									"value": "http://localhost:5000/api/nav",
+									"type": "text"
+								},
+								{
+									"key": "twitter",
+									"value": "http://localhost:5000/api/nav",
+									"type": "text"
+								},
+								{
+									"key": "tiktok",
+									"value": "http://localhost:5000/api/nav",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "najamulsaqib@falconit.com.pk",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/nav",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"nav"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYyMGExZWRmMDc3NGMzMzNmNGUzMDNkMyIsIm5hbWUiOiJOYWphbSBVbCBTYXFpYiIsImVtYWlsIjoibmFqYW11bHNhcWliQGZhbGNvbml0LmNvbS5wayIsInBhc3N3b3JkIjoiJDJhJDEwJHp1a1FKRVZOMHBHUVJzZy5JbTg3eC5yek9MWG1kV3dBcDR4Vi8wVzBYN0JjR3JrTGpNUy51IiwiY3JlYXRlZEF0IjoiMjAyMi0wMi0xNFQwOToyMDozMS4wODZaIiwidXBkYXRlZEF0IjoiMjAyMi0wMi0xNFQwOTozMzowNS44MDhaIiwiX192IjowfSwiaWF0IjoxNjQ0ODMxNDQ3LCJleHAiOjE2NDUxOTE0NDd9.31OqH3bpVA52cX2CzTHjkfF3uaIFy9Pvu9_iq1gOV6E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/nav",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"nav"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Home Screen",
+			"item": [
+				{
+					"name": "Get  Data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/home",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"home"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create / Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYyMGExZWRmMDc3NGMzMzNmNGUzMDNkMyIsIm5hbWUiOiJOYWphbSBVbCBTYXFpYiIsImVtYWlsIjoibmFqYW11bHNhcWliQGZhbGNvbml0LmNvbS5wayIsInBhc3N3b3JkIjoiJDJhJDEwJHp1a1FKRVZOMHBHUVJzZy5JbTg3eC5yek9MWG1kV3dBcDR4Vi8wVzBYN0JjR3JrTGpNUy51IiwiY3JlYXRlZEF0IjoiMjAyMi0wMi0xNFQwOToyMDozMS4wODZaIiwidXBkYXRlZEF0IjoiMjAyMi0wMi0xNFQwOTozMzowNS44MDhaIiwiX192IjowfSwiaWF0IjoxNjQ0ODMxNDQ3LCJleHAiOjE2NDUxOTE0NDd9.31OqH3bpVA52cX2CzTHjkfF3uaIFy9Pvu9_iq1gOV6E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/HP/Downloads/bb-ww.jpg"
+								},
+								{
+									"key": "text",
+									"value": "Updated Hello Hello Hello Hello",
+									"type": "text"
+								},
+								{
+									"key": "yt_link",
+									"value": "http://localhost:5000/api/home",
+									"type": "text"
+								},
+								{
+									"key": "logo",
+									"type": "file",
+									"src": "/C:/Users/HP/Downloads/pic2.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/home",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"home"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYyMGExZWRmMDc3NGMzMzNmNGUzMDNkMyIsIm5hbWUiOiJOYWphbSBVbCBTYXFpYiIsImVtYWlsIjoibmFqYW11bHNhcWliQGZhbGNvbml0LmNvbS5wayIsInBhc3N3b3JkIjoiJDJhJDEwJHp1a1FKRVZOMHBHUVJzZy5JbTg3eC5yek9MWG1kV3dBcDR4Vi8wVzBYN0JjR3JrTGpNUy51IiwiY3JlYXRlZEF0IjoiMjAyMi0wMi0xNFQwOToyMDozMS4wODZaIiwidXBkYXRlZEF0IjoiMjAyMi0wMi0xNFQwOTozMzowNS44MDhaIiwiX192IjowfSwiaWF0IjoxNjQ0ODMxNDQ3LCJleHAiOjE2NDUxOTE0NDd9.31OqH3bpVA52cX2CzTHjkfF3uaIFy9Pvu9_iq1gOV6E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/home",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"home"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Advertising",
+			"item": [
+				{
+					"name": "Get Data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/advertising",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"advertising"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create / Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYyMGExZWRmMDc3NGMzMzNmNGUzMDNkMyIsIm5hbWUiOiJOYWphbSBVbCBTYXFpYiIsImVtYWlsIjoibmFqYW11bHNhcWliQGZhbGNvbml0LmNvbS5wayIsInBhc3N3b3JkIjoiJDJhJDEwJHp1a1FKRVZOMHBHUVJzZy5JbTg3eC5yek9MWG1kV3dBcDR4Vi8wVzBYN0JjR3JrTGpNUy51IiwiY3JlYXRlZEF0IjoiMjAyMi0wMi0xNFQwOToyMDozMS4wODZaIiwidXBkYXRlZEF0IjoiMjAyMi0wMi0xNFQwOTozMzowNS44MDhaIiwiX192IjowfSwiaWF0IjoxNjQ0ODMxNDQ3LCJleHAiOjE2NDUxOTE0NDd9.31OqH3bpVA52cX2CzTHjkfF3uaIFy9Pvu9_iq1gOV6E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Hello",
+									"type": "text"
+								},
+								{
+									"key": "text",
+									"value": "Hello 2",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": [
+										"/C:/Users/HP/Downloads/wp9008676.jpg",
+										"/C:/Users/HP/Downloads/ERD EZBox media.png",
+										"/C:/Users/HP/Downloads/image (1).png"
+									]
+								},
+								{
+									"key": "textbottom",
+									"value": "textbottom",
+									"type": "text"
+								},
+								{
+									"key": "contactbutton",
+									"value": "true",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/advertising",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"advertising"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYyMGExZWRmMDc3NGMzMzNmNGUzMDNkMyIsIm5hbWUiOiJOYWphbSBVbCBTYXFpYiIsImVtYWlsIjoibmFqYW11bHNhcWliQGZhbGNvbml0LmNvbS5wayIsInBhc3N3b3JkIjoiJDJhJDEwJHp1a1FKRVZOMHBHUVJzZy5JbTg3eC5yek9MWG1kV3dBcDR4Vi8wVzBYN0JjR3JrTGpNUy51IiwiY3JlYXRlZEF0IjoiMjAyMi0wMi0xNFQwOToyMDozMS4wODZaIiwidXBkYXRlZEF0IjoiMjAyMi0wMi0xNFQwOTozMzowNS44MDhaIiwiX192IjowfSwiaWF0IjoxNjQ0ODMxNDQ3LCJleHAiOjE2NDUxOTE0NDd9.31OqH3bpVA52cX2CzTHjkfF3uaIFy9Pvu9_iq1gOV6E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/advertising",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"advertising"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product Development",
+			"item": [
+				{
+					"name": "Get Data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/productdev",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"productdev"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create / Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYyMGExZWRmMDc3NGMzMzNmNGUzMDNkMyIsIm5hbWUiOiJOYWphbSBVbCBTYXFpYiIsImVtYWlsIjoibmFqYW11bHNhcWliQGZhbGNvbml0LmNvbS5wayIsInBhc3N3b3JkIjoiJDJhJDEwJHp1a1FKRVZOMHBHUVJzZy5JbTg3eC5yek9MWG1kV3dBcDR4Vi8wVzBYN0JjR3JrTGpNUy51IiwiY3JlYXRlZEF0IjoiMjAyMi0wMi0xNFQwOToyMDozMS4wODZaIiwidXBkYXRlZEF0IjoiMjAyMi0wMi0xNFQwOTozMzowNS44MDhaIiwiX192IjowfSwiaWF0IjoxNjQ0ODMxNDQ3LCJleHAiOjE2NDUxOTE0NDd9.31OqH3bpVA52cX2CzTHjkfF3uaIFy9Pvu9_iq1gOV6E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "text",
+									"value": "Hello",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": [
+										"/C:/Users/HP/Downloads/image (1).png",
+										"/C:/Users/HP/Downloads/bb.jpg",
+										"/C:/Users/HP/Downloads/bb-removebg-preview (1).png"
+									]
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/productdev",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"productdev"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYyMGExZWRmMDc3NGMzMzNmNGUzMDNkMyIsIm5hbWUiOiJOYWphbSBVbCBTYXFpYiIsImVtYWlsIjoibmFqYW11bHNhcWliQGZhbGNvbml0LmNvbS5wayIsInBhc3N3b3JkIjoiJDJhJDEwJHp1a1FKRVZOMHBHUVJzZy5JbTg3eC5yek9MWG1kV3dBcDR4Vi8wVzBYN0JjR3JrTGpNUy51IiwiY3JlYXRlZEF0IjoiMjAyMi0wMi0xNFQwOToyMDozMS4wODZaIiwidXBkYXRlZEF0IjoiMjAyMi0wMi0xNFQwOTozMzowNS44MDhaIiwiX192IjowfSwiaWF0IjoxNjQ0ODMxNDQ3LCJleHAiOjE2NDUxOTE0NDd9.31OqH3bpVA52cX2CzTHjkfF3uaIFy9Pvu9_iq1gOV6E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/productdev",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"productdev"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Consulting",
+			"item": [
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/consulting",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"consulting"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create /Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYyMGExZWRmMDc3NGMzMzNmNGUzMDNkMyIsIm5hbWUiOiJOYWphbSBVbCBTYXFpYiIsImVtYWlsIjoibmFqYW11bHNhcWliQGZhbGNvbml0LmNvbS5wayIsInBhc3N3b3JkIjoiJDJhJDEwJHp1a1FKRVZOMHBHUVJzZy5JbTg3eC5yek9MWG1kV3dBcDR4Vi8wVzBYN0JjR3JrTGpNUy51IiwiY3JlYXRlZEF0IjoiMjAyMi0wMi0xNFQwOToyMDozMS4wODZaIiwidXBkYXRlZEF0IjoiMjAyMi0wMi0xNFQwOTozMzowNS44MDhaIiwiX192IjowfSwiaWF0IjoxNjQ0ODMxNDQ3LCJleHAiOjE2NDUxOTE0NDd9.31OqH3bpVA52cX2CzTHjkfF3uaIFy9Pvu9_iq1gOV6E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "text",
+									"value": "dadasd",
+									"type": "text"
+								},
+								{
+									"key": "textbottom",
+									"value": "asdasda",
+									"type": "text"
+								},
+								{
+									"key": "button",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/HP/Downloads/pic2.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/consulting",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"consulting"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYyMGExZWRmMDc3NGMzMzNmNGUzMDNkMyIsIm5hbWUiOiJOYWphbSBVbCBTYXFpYiIsImVtYWlsIjoibmFqYW11bHNhcWliQGZhbGNvbml0LmNvbS5wayIsInBhc3N3b3JkIjoiJDJhJDEwJHp1a1FKRVZOMHBHUVJzZy5JbTg3eC5yek9MWG1kV3dBcDR4Vi8wVzBYN0JjR3JrTGpNUy51IiwiY3JlYXRlZEF0IjoiMjAyMi0wMi0xNFQwOToyMDozMS4wODZaIiwidXBkYXRlZEF0IjoiMjAyMi0wMi0xNFQwOTozMzowNS44MDhaIiwiX192IjowfSwiaWF0IjoxNjQ0ODMxNDQ3LCJleHAiOjE2NDUxOTE0NDd9.31OqH3bpVA52cX2CzTHjkfF3uaIFy9Pvu9_iq1gOV6E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/consulting",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"consulting"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get all Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYyMGExZWRmMDc3NGMzMzNmNGUzMDNkMyIsIm5hbWUiOiJOYWphbSBVbCBTYXFpYiIsImVtYWlsIjoibmFqYW11bHNhcWliQGZhbGNvbml0LmNvbS5wayIsInBhc3N3b3JkIjoiJDJhJDEwJHp1a1FKRVZOMHBHUVJzZy5JbTg3eC5yek9MWG1kV3dBcDR4Vi8wVzBYN0JjR3JrTGpNUy51IiwiY3JlYXRlZEF0IjoiMjAyMi0wMi0xNFQwOToyMDozMS4wODZaIiwidXBkYXRlZEF0IjoiMjAyMi0wMi0xNFQwOTozMzowNS44MDhaIiwiX192IjowfSwiaWF0IjoxNjQ0ODMxNDQ3LCJleHAiOjE2NDUxOTE0NDd9.31OqH3bpVA52cX2CzTHjkfF3uaIFy9Pvu9_iq1gOV6E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Product 2",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Description  2",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/HP/Downloads/pic1.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/product/620b33b56ac4e93f0c6e82cc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"product",
+								"620b33b56ac4e93f0c6e82cc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYyMGExZWRmMDc3NGMzMzNmNGUzMDNkMyIsIm5hbWUiOiJOYWphbSBVbCBTYXFpYiIsImVtYWlsIjoibmFqYW11bHNhcWliQGZhbGNvbml0LmNvbS5wayIsInBhc3N3b3JkIjoiJDJhJDEwJHp1a1FKRVZOMHBHUVJzZy5JbTg3eC5yek9MWG1kV3dBcDR4Vi8wVzBYN0JjR3JrTGpNUy51IiwiY3JlYXRlZEF0IjoiMjAyMi0wMi0xNFQwOToyMDozMS4wODZaIiwidXBkYXRlZEF0IjoiMjAyMi0wMi0xNFQwOTozMzowNS44MDhaIiwiX192IjowfSwiaWF0IjoxNjQ0ODMxNDQ3LCJleHAiOjE2NDUxOTE0NDd9.31OqH3bpVA52cX2CzTHjkfF3uaIFy9Pvu9_iq1gOV6E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Product 1 Update 2",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Description Update 2",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/HP/Downloads/bb.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/product/620b33b56ac4e93f0c6e82cc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"product",
+								"620b33b56ac4e93f0c6e82cc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYyMGExZWRmMDc3NGMzMzNmNGUzMDNkMyIsIm5hbWUiOiJOYWphbSBVbCBTYXFpYiIsImVtYWlsIjoibmFqYW11bHNhcWliQGZhbGNvbml0LmNvbS5wayIsInBhc3N3b3JkIjoiJDJhJDEwJHp1a1FKRVZOMHBHUVJzZy5JbTg3eC5yek9MWG1kV3dBcDR4Vi8wVzBYN0JjR3JrTGpNUy51IiwiY3JlYXRlZEF0IjoiMjAyMi0wMi0xNFQwOToyMDozMS4wODZaIiwidXBkYXRlZEF0IjoiMjAyMi0wMi0xNFQwOTozMzowNS44MDhaIiwiX192IjowfSwiaWF0IjoxNjQ0ODMxNDQ3LCJleHAiOjE2NDUxOTE0NDd9.31OqH3bpVA52cX2CzTHjkfF3uaIFy9Pvu9_iq1gOV6E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/product/620b33b56ac4e93f0c6e82cc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"product",
+								"620b33b56ac4e93f0c6e82cc"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Contact Us",
+			"item": [
+				{
+					"name": "Send Message",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Najam Ul Saqib\",\r\n    \"number\": \"923127714857\",\r\n    \"email\": \"1najamulsaqib@gmail.com\",\r\n    \"message\": \"This message is about 40 characters long\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/contact",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"contact"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all messages",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/contact",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"contact"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete message",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/contact/620b3e184e130d09f4abeed9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"contact",
+								"620b3e184e130d09f4abeed9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYyMGExZWRmMDc3NGMzMzNmNGUzMDNkMyIsIm5hbWUiOiJOYWphbSBVbCBTYXFpYiIsImVtYWlsIjoibmFqYW11bHNhcWliQGZhbGNvbml0LmNvbS5wayIsInBhc3N3b3JkIjoiJDJhJDEwJHp1a1FKRVZOMHBHUVJzZy5JbTg3eC5yek9MWG1kV3dBcDR4Vi8wVzBYN0JjR3JrTGpNUy51IiwiY3JlYXRlZEF0IjoiMjAyMi0wMi0xNFQwOToyMDozMS4wODZaIiwidXBkYXRlZEF0IjoiMjAyMi0wMi0xNFQwOTozMzowNS44MDhaIiwiX192IjowfSwiaWF0IjoxNjQ0ODMxNDQ3LCJleHAiOjE2NDUxOTE0NDd9.31OqH3bpVA52cX2CzTHjkfF3uaIFy9Pvu9_iq1gOV6E",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
