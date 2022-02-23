@@ -115,6 +115,9 @@ exports.advertisingValidate = [
   check("title").notEmpty().withMessage("Title is required"),
   check("text").notEmpty().withMessage("Text is required"),
   check("textbottom").notEmpty().withMessage("Bottom text is required"),
+  check("leftImg").notEmpty().withMessage("Left Image is required"),
+  check("centerImg").notEmpty().withMessage("Center Image is required"),
+  check("rightImg").notEmpty().withMessage("Right image is required"),
 ];
 exports.productDevValidate = [
   check("text").notEmpty().withMessage("Text is required"),

@@ -15,11 +15,10 @@ const advertisingSchema = new mongoose.Schema(
       type: String,
       require: true,
     },
-    image: [
-      {
-        type: String,
-      },
-    ],
+    leftImg: String,
+
+    centerImg: String,
+    rightImg: String,
     textbottom: {
       type: String,
       require: true,

@@ -16,6 +16,7 @@ router.use("/productdev", require("./productDevelopment")); //? All the productd
 router.use("/consulting", require("./consulting")); //? All the consulting
 router.use("/product", require("./product")); //? All the Product routes
 router.use("/contact", require("./contactUs")); //? All the contact
+router.use("/image", require("./image")); //? All the contact
 
 //* Export
 module.exports = router;
