@@ -14,7 +14,7 @@ const { check, validationResult } = require("express-validator");
 //? You can create multiple validations strategies (Read express-validator documentation for more details)
 //* User Signup Validation
 exports.validateUser = [
-  check("name", "Name is required.").notEmpty().trim(),
+  //  check("name", "Name is required.").notEmpty().trim(),
   check("email", "Email is required.").notEmpty().isEmail().trim(),
   check("password")
     .notEmpty()
@@ -115,6 +115,9 @@ exports.advertisingValidate = [
   check("title").notEmpty().withMessage("Title is required"),
   check("text").notEmpty().withMessage("Text is required"),
   check("textbottom").notEmpty().withMessage("Bottom text is required"),
+  check("leftImg").notEmpty().withMessage("Left Image is required"),
+  check("centerImg").notEmpty().withMessage("Center Image is required"),
+  check("rightImg").notEmpty().withMessage("Right image is required"),
 ];
 exports.productDevValidate = [
   check("text").notEmpty().withMessage("Text is required"),

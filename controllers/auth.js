@@ -2,7 +2,7 @@
  ** User auth controllers
  * @author Yousuf Kalim
  */
-const Users = require("../models/Users");
+const Users = require("../models/Admins");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { sendEmail } = require("../utils/sendEmail");
@@ -93,11 +93,12 @@ exports.changePassword = async (req, res) => {
     //? If old password is same as new password
     const isMatchedNew = bcrypt.compareSync(newPassword, user.password);
     if (isMatchedNew) {
-      return res
-        .status(400)
-        .json({ success: false, message: "Old Password and new Password cannot be same." });
+      return res.status(400).json({
+        success: false,
+        message: "Old Password and new Password cannot be same.",
+      });
     }
-    
+
     //? Generate token
     user.password = bcrypt.hashSync(newPassword, parseInt(bcryptSalt));
 
@@ -161,5 +162,5 @@ exports.forgot = async (req, res) => {
  */
 exports.confirmAuth = async (req, res) => {
   //? If user authenticated
-  res.json({ success: true, user: req.user });
+  res.json({ success: true, admin: req.admin, token: req.token });
 };

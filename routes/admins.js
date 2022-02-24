@@ -3,7 +3,8 @@
  * @author Najam Ul Saqib
  */
 const router = require("express").Router();
-const user = require("../controllers/user");
+const user = require("../controllers/Admins");
+const auth = require("../controllers/auth");
 const { checkAuth } = require("../middleware/checkAuth");
 const {
   validateUser,
@@ -24,6 +25,8 @@ router.post(
   isValidated, //? chk if user data is valid or not
   user.create //? create user controller
 );
+router.post("/login", user.login);
+router.get("/auth", checkAuth, auth.confirmAuth); //? to all users
 router.get("/", checkAuth, user.getAll); //? to all users
 router.get("/:userId", user.getById); //? to get user by its id
 router.delete("/:userId", user.delete); //? delete user

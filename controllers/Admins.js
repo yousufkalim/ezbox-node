@@ -2,9 +2,11 @@
  ** User controllers
  * @author Yousuf Kalim
  */
-const Users = require("../models/Users");
+const Users = require("../models/Admins");
 const bcrypt = require("bcryptjs");
 const bcryptSalt = process.env.BCRYPT_SALT || 10;
+const jwt = require("jsonwebtoken");
+const tokenSecret = process.env.JWT_SECRET;
 
 /**
  ** Create User - Signup
@@ -38,6 +40,53 @@ exports.create = async (req, res) => {
     res.json({ success: true, user }); //? Success
   } catch (err) {
     //? Error handling
+    console.log("Error ----> ", err);
+    res.status(500).json({ success: false, message: "Internal server error" });
+  }
+};
+// Login
+exports.login = async (req, res) => {
+  try {
+    // Getting email and password
+    const { email, password } = req.body;
+
+    // Getting user from db
+    let admin = await Users.findOne({ email });
+
+    if (!admin) {
+      // If admin not found
+      return res
+        .status(404)
+        .json({ success: false, message: "Admin not found" });
+    } else if (!admin.active) {
+      // If admin not found
+      return res
+        .status(400)
+        .json({ success: false, message: "Your account is not activated" });
+    }
+
+    // Comparing password
+    const isMatched = bcrypt.compareSync(password, admin.password);
+
+    if (!isMatched) {
+      // If password not matched
+      return res
+        .status(400)
+        .json({ success: false, message: "Invalid Password" });
+    }
+
+    // Creating payload with admin object
+    const payload = { admin };
+
+    // Generating token
+    jwt.sign(payload, tokenSecret, { expiresIn: 360000 }, (err, token) => {
+      if (err) throw err;
+
+      // done
+      res.json({ success: true, admin, token });
+    });
+  } catch (err) {
+    // Error handling
     console.log("Error ----> ", err);
     res.status(500).json({ success: false, message: "Internal server error" });
   }

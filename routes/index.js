@@ -8,7 +8,7 @@ const router = require("express").Router();
 //* Parent Routes
 
 router.use("/auth", require("./auth")); //? All the auth routes
-router.use("/admin", require("./user")); //? All the auth routes
+router.use("/admins", require("./admins")); //? All the auth routes
 router.use("/nav", require("./navigation")); //? All the navbar routes
 router.use("/home", require("./homeScreen")); //? All the homeScreen routes
 router.use("/advertising", require("./advertising")); //? All the advertising routes
@@ -16,6 +16,7 @@ router.use("/productdev", require("./productDevelopment")); //? All the productd
 router.use("/consulting", require("./consulting")); //? All the consulting
 router.use("/product", require("./product")); //? All the Product routes
 router.use("/contact", require("./contactUs")); //? All the contact
+router.use("/image", require("./image")); //? All the contact
 
 //* Export
 module.exports = router;
