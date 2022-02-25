@@ -6,13 +6,13 @@ const Products = require("../models/Products");
 
 /**
  ** Get All products
- * @param {object} req 
- * @param {object} res 
+ * @param {object} req
+ * @param {object} res
  */
 exports.getAll = async (req, res) => {
   try {
-    let products = await Products.find(); //? find all products
-    return res.status(200).json({ success: true, products });
+    let products = await Products.findOne();
+    res.json({ success: true, products: products || {} });
   } catch (err) {
     //? Error handling
     console.log("Error ----> ", err);
@@ -22,8 +22,8 @@ exports.getAll = async (req, res) => {
 
 /**
  ** Get Product by Id
- * @param {object} req 
- * @param {object} res 
+ * @param {object} req
+ * @param {object} res
  */
 exports.getById = async (req, res) => {
   try {
@@ -38,22 +38,28 @@ exports.getById = async (req, res) => {
 
 /**
  ** Create Product
- * @param {object} req 
- * @param {object} res 
+ * @param {object} req
+ * @param {object} res
  */
-exports.create = async (req, res) => {
+exports.createUpdate = async (req, res) => {
   try {
-    if (req.file) { //? cehck if request contains file
-      req.body.image = req.file.path; //? assign file name to body.image
-    }
-    await Products.create(req.body).then((product, err) => { //? create product
-      if (err) throw err;
-      res.status(200).json({
-        success: true,
-        message: "Product Created Sucessfully!",
-        product,
+    let product = await Products.findOne(); //? get first document in db.
+
+    if (product) {
+      await Products.findOneAndUpdate(req.body).then(() => {
+        return res.json({
+          success: true,
+          message: "Product Data Updated Sucessfully",
+        });
       });
-    });
+    } else {
+      await Products.create(req.body).then(() => {
+        return res.json({
+          success: true,
+          message: "Product Data Uploaded Sucessfully",
+        });
+      });
+    }
   } catch (err) {
     //? Error handling
     console.log("Error ----> ", err);
@@ -63,15 +69,17 @@ exports.create = async (req, res) => {
 
 /**
  ** Update Product
- * @param {object} req 
- * @param {object} res 
+ * @param {object} req
+ * @param {object} res
  */
 exports.update = async (req, res) => {
   try {
-    if (req.file) { //? check if request have file.
+    if (req.file) {
+      //? check if request have file.
       req.body.image = req.file.path; //? assign file path to body.image
     }
-    await Products.findByIdAndUpdate(req.params.productId, req.body).then( //? update product
+    await Products.findByIdAndUpdate(req.params.productId, req.body).then(
+      //? update product
       (product, err) => {
         if (err) throw err;
         res.status(200).json({
@@ -90,12 +98,13 @@ exports.update = async (req, res) => {
 
 /**
  ** Delete Product
- * @param {object} req 
- * @param {object} res 
+ * @param {object} req
+ * @param {object} res
  */
 exports.delete = async (req, res) => {
   try {
-    await Products.findByIdAndDelete(req.params.productId).then((product) => { //? delete product by its id
+    await Products.findByIdAndDelete(req.params.productId).then((product) => {
+      //? delete product by its id
       res.status(200).json({
         success: true,
         message: "Product Deleted Sucessfully!",

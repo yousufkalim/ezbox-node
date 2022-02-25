@@ -9,14 +9,15 @@ const router = require("express").Router();
 
 router.use("/auth", require("./auth")); //? All the auth routes
 router.use("/admins", require("./admins")); //? All the auth routes
-router.use("/nav", require("./navigation")); //? All the navbar routes
-router.use("/home", require("./homeScreen")); //? All the homeScreen routes
+router.use("/navigation", require("./navigation")); //? All the navbar routes
+router.use("/homeScreen", require("./homeScreen")); //? All the homeScreen routes
 router.use("/advertising", require("./advertising")); //? All the advertising routes
 router.use("/productdev", require("./productDevelopment")); //? All the productdev routes
 router.use("/consulting", require("./consulting")); //? All the consulting
 router.use("/product", require("./product")); //? All the Product routes
 router.use("/contact", require("./contactUs")); //? All the contact
 router.use("/image", require("./image")); //? All the contact
+router.use("/reviews", require("./reviews")); //? All the reviewes
 
 //* Export
 module.exports = router;

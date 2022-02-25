@@ -7,6 +7,10 @@ const mongoose = require("mongoose");
 //* Schema
 const reviewSchema = new mongoose.Schema(
   {
+    image: {
+      type: String,
+      require: true,
+    },
     name: {
       type: String,
       require: true,

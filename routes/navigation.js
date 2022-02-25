@@ -21,7 +21,7 @@ router.get("/", navigation.getNav); //? Get data
 router.post(
   "/",
   checkAuth,
-  upload.single("image"),
+
   navigationValidate,
   isValidated,
   navigation.createUpdate

@@ -6,14 +6,14 @@ const ProductDev = require("../models/ProductDev");
 
 /**
  ** Get Product Development page data
- * @param {object} req 
- * @param {object} res 
+ * @param {object} req
+ * @param {object} res
  */
 exports.getData = async (req, res) => {
   try {
     //? Find Data
-    let data = await ProductDev.findOne();
-    res.json({ success: true, data });
+    let productDev = await ProductDev.findOne();
+    res.json({ success: true, productDev: productDev || {} });
   } catch (err) {
     //? Error handling
     console.log("Error ----> ", err);
@@ -23,13 +23,14 @@ exports.getData = async (req, res) => {
 
 /**
  ** Craete / Update Product Development page data
- * @param {object} req 
- * @param {object} res 
+ * @param {object} req
+ * @param {object} res
  */
 exports.createUpdate = async (req, res) => {
   try {
     let productDev = await ProductDev.findOne(); //? find data
-    if (req.files) { //? if files exist
+    if (req.files) {
+      //? if files exist
       let images = req.files;
       let filePaths = []; //? empty array for image paths
       images.forEach((image) => {
@@ -39,14 +40,17 @@ exports.createUpdate = async (req, res) => {
       });
       req.body.image = filePaths; //? file path array assigned to body.image
     }
-    if (productDev) { //? if data already exist update it
-      await ProductDev.findOneAndUpdate(req.body).then(() => { //? find first document and update it.
+    if (productDev) {
+      //? if data already exist update it
+      await ProductDev.findOneAndUpdate(req.body).then(() => {
+        //? find first document and update it.
         return res.json({
           success: true,
           message: "Product Development Data Updated Sucessfully",
         });
       });
-    } else { //? if data didn't found create data.
+    } else {
+      //? if data didn't found create data.
       await ProductDev.create(req.body).then(() => {
         return res.json({
           success: true,
@@ -63,12 +67,13 @@ exports.createUpdate = async (req, res) => {
 
 /**
  ** Delete Product Development page data
- * @param {object} req 
- * @param {object} res 
+ * @param {object} req
+ * @param {object} res
  */
 exports.delete = async (req, res) => {
   try {
-    await ProductDev.findOneAndDelete().then(() => { //? find first document and delete it.
+    await ProductDev.findOneAndDelete().then(() => {
+      //? find first document and delete it.
       return res.json({
         success: true,
         message: "Product Development Data Deleted Sucessfully",
