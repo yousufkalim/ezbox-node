@@ -12,8 +12,8 @@ const productDevSchema = new mongoose.Schema(
       require: true,
     },
     leftImg: String,
-    CentertImg: String,
-    RightImg: String,
+    centerImg: String,
+    rightImg: String,
   },
   {
     timestamps: true,

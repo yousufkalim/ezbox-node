@@ -18,14 +18,7 @@ const { upload } = require("../middleware/multer");
 
 //* Read
 router.get("/", navigation.getNav); //? Get data
-router.post(
-  "/",
-  checkAuth,
-
-  navigationValidate,
-  isValidated,
-  navigation.createUpdate
-); //? Create / Update Navigation.
+router.post("/", checkAuth, navigation.createUpdate); //? Create / Update Navigation.
 router.delete("/", checkAuth, navigation.delete); //? delete navigation data
 
 //* Export
