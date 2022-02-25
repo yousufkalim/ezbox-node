@@ -12,7 +12,7 @@ const { upload } = require("../middleware/multer");
  ** Routes
  * @method get get Products
  * @method get get product by id
- * @method post create product 
+ * @method post create product
  * @method put Update product
  * @method delete Delete product
  *
@@ -21,23 +21,10 @@ const { upload } = require("../middleware/multer");
 //* Read
 router.get("/", product.getAll); //? Get Product
 router.get("/:productId", product.getById); //? Get Product
-router.post(
-  "/",
-  checkAuth,
-  upload.single("image"),
-  productValidate,
-  isValidated,
-  product.create
-); //? Create Product.
+
+router.post("/", checkAuth, productValidate, isValidated, product.createUpdate); //? Create Product.
 router.get("/:productId", product.getAll); //? Get Product
-router.put(
-  "/:productId",
-  checkAuth,
-  upload.single("image"),
-  productValidate,
-  isValidated,
-  product.update
-); //? Update Product.
+
 router.delete("/:productId", checkAuth, product.delete); //? delete Product
 
 //* Export

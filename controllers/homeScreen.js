@@ -6,14 +6,14 @@ const HomeScreen = require("../models/HomeScreen");
 
 /**
  ** Get Home Screen page data
- * @param {object} req 
- * @param {object} res 
+ * @param {object} req
+ * @param {object} res
  */
 exports.getData = async (req, res) => {
   try {
     //? Find Data
-    let data = await HomeScreen.findOne();
-    res.json({ success: true, data });
+    let home = await HomeScreen.findOne();
+    res.json({ success: true, home: home || {} });
   } catch (err) {
     //? Error handling
     console.log("Error ----> ", err);
@@ -23,26 +23,23 @@ exports.getData = async (req, res) => {
 
 /**
  ** Create / Update Home Screen page data
- * @param {object} req 
- * @param {object} res 
+ * @param {object} req
+ * @param {object} res
  */
 exports.createUpdate = async (req, res) => {
   try {
     let home = await HomeScreen.findOne(); //? get first document in db.
-    if (req.files.logo) { //? if request have logo
-      req.body.logo = req.files.logo[0].path; 
-    }
-    if (req.files.image) { //? if request have image
-      req.body.image = req.files.image[0].path;
-    }
-    if (home) { //? if home screen have data update it.
+
+    if (home) {
+      //? if home screen have data update it.
       await HomeScreen.findOneAndUpdate(req.body).then(() => {
         return res.json({
           success: true,
           message: "HomeScreen Data Updated Sucessfully",
         });
       });
-    } else { //? if home screen donot have data create it.
+    } else {
+      //? if home screen donot have data create it.
       await HomeScreen.create(req.body).then(() => {
         return res.json({
           success: true,
@@ -59,12 +56,13 @@ exports.createUpdate = async (req, res) => {
 
 /**
  ** Delete Home Screen page data
- * @param {object} req 
- * @param {object} res 
+ * @param {object} req
+ * @param {object} res
  */
 exports.delete = async (req, res) => {
   try {
-    await HomeScreen.findOneAndDelete().then(() => { //? find first document in db and delete it
+    await HomeScreen.findOneAndDelete().then(() => {
+      //? find first document in db and delete it
       return res.json({
         success: true,
         message: "HomeScreen Data Deleted Sucessfully",

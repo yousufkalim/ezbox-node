@@ -106,10 +106,7 @@ exports.navigationValidate = [
 ];
 exports.homeScreenValidate = [
   check("text").notEmpty().withMessage("Text is required"),
-  check("yt_link")
-    .optional()
-    .custom((value) => isValidUrl(value))
-    .withMessage("Invalid Youtube URL"),
+  check("yt_link").notEmpty().withMessage("Invalid Youtube URL"),
 ];
 exports.advertisingValidate = [
   check("title").notEmpty().withMessage("Title is required"),
@@ -121,10 +118,18 @@ exports.advertisingValidate = [
 ];
 exports.productDevValidate = [
   check("text").notEmpty().withMessage("Text is required"),
+  check("leftImg").notEmpty().withMessage("Left Image is required"),
+  check("centerImg").notEmpty().withMessage("Center Image is required"),
+  check("rightImg").notEmpty().withMessage("Right image is required"),
 ];
 exports.consultingValidate = [
   check("text").notEmpty().withMessage("Text is required"),
   check("textbottom").notEmpty().withMessage("Bottom text is required"),
+];
+exports.reviewValidate = [
+  check("name").notEmpty().withMessage("name is required"),
+  check("rating").notEmpty().withMessage("rating is required"),
+  check("message").notEmpty().withMessage("message is required"),
 ];
 exports.productValidate = [
   check("title").notEmpty().withMessage("Title is required"),
@@ -139,11 +144,7 @@ exports.contactUsValidate = [
     .isLength(12)
     .withMessage("Write Phone Number in this format '33XXXXXXXXXX'."),
   check("email").notEmpty().withMessage("Email is required"),
-  check("message")
-    .notEmpty()
-    .withMessage("Message is required")
-    .isLength({ min: 30 })
-    .withMessage("Message must be atleast 30 characters long."),
+  check("message").notEmpty().withMessage("Message is required"),
 ];
 
 /**

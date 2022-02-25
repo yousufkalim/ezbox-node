@@ -21,21 +21,11 @@ router.get("/", homeScreen.getData); //? Get homeScreen data
 router.post(
   "/",
   checkAuth,
-  upload.fields([
-    {
-      name: "image",
-      maxCount: 1,
-    },
-    {
-      name: "logo",
-      maxCount: 1,
-    },
-  ]),
   homeScreenValidate,
   isValidated,
   homeScreen.createUpdate
 ); //? Create / Update homeScreen.
- router.delete("/", checkAuth, homeScreen.delete); //? delete homeScreen data
+router.delete("/", checkAuth, homeScreen.delete); //? delete homeScreen data
 
 //* Export
 module.exports = router;
