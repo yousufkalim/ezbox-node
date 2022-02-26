@@ -11,9 +11,17 @@ const advertisingSchema = new mongoose.Schema(
       type: String,
       require: true,
     },
+    title_font: {
+      type: String,
+      default: "Urbanist",
+    },
     text: {
       type: String,
       require: true,
+    },
+    text_font: {
+      type: String,
+      default: "Urbanist",
     },
     leftImg: String,
 
@@ -22,6 +30,10 @@ const advertisingSchema = new mongoose.Schema(
     textbottom: {
       type: String,
       require: true,
+    },
+    textbottom_font: {
+      type: String,
+      default: "Urbanist",
     },
     contactbutton: {
       type: Boolean,

@@ -11,6 +11,10 @@ const consultingSchema = new mongoose.Schema(
       type: String,
       require: true,
     },
+    text_font: {
+      type: String,
+      default: "Urbanist",
+    },
     image: {
       type: String,
       require: true,
@@ -18,6 +22,10 @@ const consultingSchema = new mongoose.Schema(
     textbottom: {
       type: String,
       require: true,
+    },
+    textbottom_font: {
+      type: String,
+      default: "Urbanist",
     },
     contactbutton: {
       type: Boolean,

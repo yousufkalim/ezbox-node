@@ -11,9 +11,17 @@ const productSchema = new mongoose.Schema(
       type: String,
       require: true,
     },
+    title_font: {
+      type: String,
+      default: "Urbanist",
+    },
     description: {
       type: String,
       require: true,
+    },
+    description_font: {
+      type: String,
+      default: "Urbanist",
     },
     image: {
       type: String,

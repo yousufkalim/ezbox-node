@@ -15,6 +15,10 @@ const reviewSchema = new mongoose.Schema(
       type: String,
       require: true,
     },
+    name_font: {
+      type: String,
+      default: "Urbanist",
+    },
     rating: {
       type: Number,
       require: true,
@@ -22,6 +26,10 @@ const reviewSchema = new mongoose.Schema(
     message: {
       type: String,
       require: true,
+    },
+    message_font: {
+      type: String,
+      default: "Urbanist",
     },
   },
   {

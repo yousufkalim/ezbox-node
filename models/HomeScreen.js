@@ -11,6 +11,10 @@ const homeScreenSchema = new mongoose.Schema(
       type: String,
       require: true,
     },
+    text_font: {
+      type: String,
+      default: "Urbanist",
+    },
     image: {
       type: String,
       require: true,

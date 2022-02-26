@@ -11,6 +11,10 @@ const productDevSchema = new mongoose.Schema(
       type: String,
       require: true,
     },
+    text_font: {
+      type: String,
+      default: "Urbanist",
+    },
     leftImg: String,
     centerImg: String,
     rightImg: String,
