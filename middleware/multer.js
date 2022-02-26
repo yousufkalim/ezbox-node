@@ -11,9 +11,11 @@ exports.upload = multer({
   //? to store images
   storage: multer.diskStorage({
     //? Defining the path where we have to store the image
-    destination: function (req, file, cb) { //? destination folder
-      if (!fs.existsSync("./uploads")) { //? chk if folder do not exist
-        fs.mkdirSync("./uploads");  //? create folder
+    destination: function (req, file, cb) {
+      //? destination folder
+      if (!fs.existsSync("./uploads")) {
+        //? chk if folder do not exist
+        fs.mkdirSync("./uploads"); //? create folder
       }
       cb(null, "./uploads");
     },
@@ -24,6 +26,6 @@ exports.upload = multer({
   }),
   //? File size limit upto 5 mb
   limits: {
-    fileSize: 1024 * 1024 * 5,
+    fileSize: 1024 * 1024 * 15,
   },
 });
