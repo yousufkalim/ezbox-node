@@ -3,7 +3,7 @@
  * @author Najam Ul Saqib
  */
 const router = require("express").Router();
-const product = require("../controllers/product");
+const product = require("../controllers/products");
 const { checkAuth } = require("../middleware/checkAuth");
 const { isValidated, productValidate } = require("../middleware/validators");
 const { upload } = require("../middleware/multer");
@@ -22,8 +22,8 @@ const { upload } = require("../middleware/multer");
 router.get("/", product.getAll); //? Get Product
 router.get("/:productId", product.getById); //? Get Product
 
-router.post("/", checkAuth, productValidate, isValidated, product.createUpdate); //? Create Product.
-router.get("/:productId", product.getAll); //? Get Product
+router.post("/", checkAuth, productValidate, isValidated, product.create); //? Create Product.
+router.put("/:productId", product.update); //? Get Product
 
 router.delete("/:productId", checkAuth, product.delete); //? delete Product
 

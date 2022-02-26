@@ -11,7 +11,7 @@ const Products = require("../models/Products");
  */
 exports.getAll = async (req, res) => {
   try {
-    let products = await Products.findOne();
+    let products = await Products.find();
     res.json({ success: true, products: products || {} });
   } catch (err) {
     //? Error handling
@@ -41,25 +41,15 @@ exports.getById = async (req, res) => {
  * @param {object} req
  * @param {object} res
  */
-exports.createUpdate = async (req, res) => {
+exports.create = async (req, res) => {
   try {
-    let product = await Products.findOne(); //? get first document in db.
+    let product = await Products.create(req.body);
 
-    if (product) {
-      await Products.findOneAndUpdate(req.body).then(() => {
-        return res.json({
-          success: true,
-          message: "Product Data Updated Sucessfully",
-        });
-      });
-    } else {
-      await Products.create(req.body).then(() => {
-        return res.json({
-          success: true,
-          message: "Product Data Uploaded Sucessfully",
-        });
-      });
-    }
+    res.json({
+      success: true,
+      message: "Product Data Uploaded Sucessfully",
+      product,
+    });
   } catch (err) {
     //? Error handling
     console.log("Error ----> ", err);
