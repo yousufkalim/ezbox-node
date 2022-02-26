@@ -12,8 +12,8 @@ const Consulting = require("../models/Consulting");
 exports.getData = async (req, res) => {
   try {
     //? Find Data
-    let consult = await Consulting.findOne();
-    res.json({ success: true, consult: consult || {} });
+    let consulting = await Consulting.findOne();
+    res.json({ success: true, consulting: consulting || {} });
   } catch (err) {
     //? Error handling
     console.log("Error ----> ", err);
