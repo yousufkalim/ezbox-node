@@ -137,13 +137,12 @@ exports.productValidate = [
 ];
 exports.contactUsValidate = [
   check("name").notEmpty().withMessage("Title is required"),
-  check("number")
-    .optional()
-    .isNumeric()
-    .withMessage("Phone Number is Invalid")
-    .isLength(12)
-    .withMessage("Write Phone Number in this format '33XXXXXXXXXX'."),
-  check("email").notEmpty().withMessage("Email is required"),
+  check("number").optional().isNumeric().withMessage("Phone Number is Invalid"),
+  check("email")
+    .notEmpty()
+    .withMessage("Email is required")
+    .isEmail()
+    .withMessage("Email is invalid"),
   check("message").notEmpty().withMessage("Message is required"),
 ];
 
@@ -172,7 +171,7 @@ exports.isValidated = (req, res, next) => {
   const errors = validationResult(req); //? Validating the request by previous middleware's strategy
   if (!errors.isEmpty()) {
     //? On error
-    res.status(400).send({ success: false, message: errors.array()[0] }); //? Sending first error to the client from array of errors
+    res.status(400).send({ success: false, message: errors.array()[0].msg }); //? Sending first error to the client from array of errors
   } else {
     //? Validated successfully
     next(); //? Pass the request to next middleware or controller
