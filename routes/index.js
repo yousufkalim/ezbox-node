@@ -14,6 +14,7 @@ router.use("/homeScreen", require("./homeScreen")); //? All the homeScreen route
 router.use("/layout1", require("./layout1")); //? All the advertising routes
 router.use("/layout2", require("./layout2")); //? All the productdev routes
 router.use("/layout3", require("./layout3")); //? All the consulting
+router.use("/app_routes", require("./appRoutes")); //? All the consulting
 router.use("/product", require("./products")); //? All the Product routes
 router.use("/contact", require("./contactUs")); //? All the contact
 router.use("/image", require("./image")); //? All the contact

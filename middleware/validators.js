@@ -126,6 +126,12 @@ exports.layout3Validate = [
   check("text").notEmpty().withMessage("Text is required"),
   check("textbottom").notEmpty().withMessage("Bottom text is required"),
 ];
+exports.appRouteValidate = [
+  check("path").notEmpty().withMessage("Path is required"),
+  check("name").notEmpty().withMessage("Name is required"),
+  check("lo_type").notEmpty().withMessage("Layout Type is required"),
+  check("lo_id").notEmpty().withMessage("Layout Id is required"),
+];
 exports.reviewValidate = [
   check("name").notEmpty().withMessage("name is required"),
   check("rating").notEmpty().withMessage("rating is required"),

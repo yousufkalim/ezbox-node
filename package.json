@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "sudo chmod 644 .git/index && git pull origin main && npm install && sudo pm2 restart 20 && sudo pm2 logs 20"
   },
