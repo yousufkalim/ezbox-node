@@ -1,11 +1,12 @@
 /**
  ** Advertising schema
  * @author Najam Ul Saqib
+ * @author Umar Bin Ayaz
  */
 const mongoose = require("mongoose");
 
 //* Schema
-const advertisingSchema = new mongoose.Schema(
+const layout1Schema = new mongoose.Schema(
   {
     title: {
       type: String,
@@ -46,4 +47,4 @@ const advertisingSchema = new mongoose.Schema(
 );
 
 //* Model
-module.exports = mongoose.model("advertising", advertisingSchema);
+module.exports = mongoose.model("layouts1", layout1Schema);

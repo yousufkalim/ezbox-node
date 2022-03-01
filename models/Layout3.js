@@ -1,11 +1,12 @@
 /**
  ** Consulting schema
  * @author Najam Ul Saqib
+ * @author Umar Bin Ayaz
  */
 const mongoose = require("mongoose");
 
 //* Schema
-const consultingSchema = new mongoose.Schema(
+const layout3Schema = new mongoose.Schema(
   {
     text: {
       type: String,
@@ -38,4 +39,4 @@ const consultingSchema = new mongoose.Schema(
 );
 
 //* Model
-module.exports = mongoose.model("consulting", consultingSchema);
+module.exports = mongoose.model("layouts3", layout3Schema);

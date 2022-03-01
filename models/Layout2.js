@@ -1,11 +1,12 @@
 /**
  ** Product Development schema
  * @author Najam Ul Saqib
+ * @author Umar Bin Ayaz
  */
 const mongoose = require("mongoose");
 
 //* Schema
-const productDevSchema = new mongoose.Schema(
+const layout2Schema = new mongoose.Schema(
   {
     text: {
       type: String,
@@ -25,4 +26,4 @@ const productDevSchema = new mongoose.Schema(
 );
 
 //* Model
-module.exports = mongoose.model("product_development", productDevSchema);
+module.exports = mongoose.model("layouts2", layout2Schema);

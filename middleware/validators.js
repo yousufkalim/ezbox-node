@@ -108,7 +108,7 @@ exports.homeScreenValidate = [
   check("text").notEmpty().withMessage("Text is required"),
   check("yt_link").notEmpty().withMessage("Invalid Youtube URL"),
 ];
-exports.advertisingValidate = [
+exports.layout1Validate = [
   check("title").notEmpty().withMessage("Title is required"),
   check("text").notEmpty().withMessage("Text is required"),
   check("textbottom").notEmpty().withMessage("Bottom text is required"),
@@ -116,13 +116,13 @@ exports.advertisingValidate = [
   check("centerImg").notEmpty().withMessage("Center Image is required"),
   check("rightImg").notEmpty().withMessage("Right image is required"),
 ];
-exports.productDevValidate = [
+exports.layout2Validate = [
   check("text").notEmpty().withMessage("Text is required"),
   check("leftImg").notEmpty().withMessage("Left Image is required"),
   check("centerImg").notEmpty().withMessage("Center Image is required"),
   check("rightImg").notEmpty().withMessage("Right image is required"),
 ];
-exports.consultingValidate = [
+exports.layout3Validate = [
   check("text").notEmpty().withMessage("Text is required"),
   check("textbottom").notEmpty().withMessage("Bottom text is required"),
 ];
