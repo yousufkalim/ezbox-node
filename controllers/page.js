@@ -51,20 +51,13 @@
   */
   exports.create = async (req, res) => {
    try {
-     const layoutId = req.body.layout;
+     const layoutBody = req.body.layout;
+     const layout = await Layout.create(layoutBody);
 
-     const layout = await Layout.findById(
-      layoutId
-     );
-
-     if(!layout){
-      return res.json({
-        success: false,
-        message: "Invalid Layout.",
-      });
-     }
-
-     await Page.create(req.body).then(() => {
+     await Page.create({
+      ...req.body,
+      layout: layout._id
+     }).then(() => {
        return res.json({
          success: true,
          message: "Page Data Uploaded Sucessfully",
@@ -85,19 +78,29 @@
  exports.update = async (req, res) => {
    try {
 
-     const layoutId = req.body.layout;
+     const layoutBody = req.body.layout;
 
-     if(layoutId){
-      const layout = await Layout.findById(
-        layoutId
-       );
-  
-       if(!layout){
+     if(layoutBody){
+      const layout = await Layout.findByIdAndUpdate(
+        layoutBody._id,
+        {
+          ...layoutBody,
+          _id: undefined
+        }
+      );
+      // findOneAndUpdate was not used consciously because of _id being in the object.
+      // As it is not possible to modify _id of objects, it will raise RT exception.
+
+      if(!layout){
         return res.json({
           success: false,
-          message: "Invalid Layout.",
+          message: "Invalid Layout ID.",
         });
-       }
+      }
+      // This is here, but can obviously add check to match unique id of layout to page as well.
+      // Best Wishes,
+      // Umar.
+      // March 01, 2022
      }
 
      const pageId = req.params.id; //Getting PageId from Params
@@ -125,8 +128,9 @@
  exports.delete = async (req, res) => {
    try {
      const pageId = req.params.id; //Getting PageId from Params
-     const data = await Page.findByIdAndDelete(pageId);
-     if(data){
+     const dataPage = await Page.findByIdAndDelete(pageId);
+     const datalayout = await Layout.findByIdAndDelete(dataPage.layout);
+     if(dataPage && datalayout){
        return res.json({
          success: true,
          message: "Page Data Deleted Sucessfully",
