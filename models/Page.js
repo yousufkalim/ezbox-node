@@ -6,24 +6,25 @@
  const mongoose = require("mongoose");
 
  //* Schema
- const appRouteSchema = new mongoose.Schema(
+ const pageSchema = new mongoose.Schema(
    {
      path: {
        type: String,
-       require: true,
+       required: true,
      },
      name: {
        type: String,
-       require: true,
+       required: true,
      },
-     lo_type: {
+     layout_type: {
       type: String,
       enum: ["type1", "type2", "type3"],
-      require: true,
+      required: true,
     },
-     lo_id: {
-       type: mongoose.Types.ObjectId,
-       require: true,
+     layout: {
+       type: mongoose.Schema.Types.ObjectId,
+       ref: "layouts",
+       required: true,
      }
    },
    {
@@ -32,5 +33,5 @@
  );
  
  //* Model
- module.exports = mongoose.model("app_routes", appRouteSchema);
+ module.exports = mongoose.model("pages", pageSchema);
  

@@ -1,19 +1,19 @@
 /**
- ** Product Development Controller
+ ** Layout Controller
  * @author Najam Ul Saqib
  * @author Umar Bin Ayaz
  */
-const Layout2 = require("../models/Layout2");
+const Layout = require("../models/Layout");
 
 /**
- ** Get Advertising page data
+ ** Get Layout page data
  * @param {object} req
  * @param {object} res
  */
- exports.getAll = async (req, res) => {
+exports.getAll = async (req, res) => {
   try {
     //? Find Data
-    const data = await Layout2.find();
+    const data = await Layout.find();
     res.json({ success: true, data });
   } catch (err) {
     //? Error handling
@@ -23,7 +23,7 @@ const Layout2 = require("../models/Layout2");
 };
 
 /**
- ** Get Layout1 page data
+ ** Get Layout page data
  * @param {object} req
  * @param {object} res
  */
@@ -31,7 +31,7 @@ const Layout2 = require("../models/Layout2");
   try {
     //? Find Data
     const layoutId = req.params.id; //Getting layoutId from Params
-    const data = await Layout2.findById(layoutId);
+    const data = await Layout.findById(layoutId);
     if(data){
       res.json({ success: true, data });
     } else {
@@ -62,11 +62,11 @@ const Layout2 = require("../models/Layout2");
       });
       req.body.image = filePaths; //? assign paths to body.image
     }
-    //? if layout1 page donot have data.
-    await Layout2.create(req.body).then(() => {
+    //? if Layout page donot have data.
+    await Layout.create(req.body).then(() => {
       return res.json({
         success: true,
-        message: "Layout2 Data Uploaded Sucessfully",
+        message: "Layout Data Uploaded Sucessfully",
       });
     });
   } catch (err) {
@@ -77,11 +77,11 @@ const Layout2 = require("../models/Layout2");
 };
 
 /**
- ** Update Layout1 page data
+ ** Update Layout page data
  * @param {object} req
  * @param {object} res
  */
- exports.update = async (req, res) => {
+exports.update = async (req, res) => {
   try {
     const layoutId = req.params.id; //Getting layoutId from Params
     if (req.files) {
@@ -95,11 +95,11 @@ const Layout2 = require("../models/Layout2");
       });
       req.body.image = filePaths; //? assign paths to body.image
     }
-    const data = await Layout2.findByIdAndUpdate(layoutId, req.body);
+    const data = await Layout.findByIdAndUpdate(layoutId, req.body);
     if(data){
       return res.json({
         success: true,
-        message: "Layout2 Data Updated Sucessfully",
+        message: "Layout Data Updated Sucessfully",
       });
     } else {
       res.status(200).json({ success: true, message: "Invalid ID" });
@@ -116,14 +116,14 @@ const Layout2 = require("../models/Layout2");
  * @param {object} req
  * @param {object} res
  */
- exports.delete = async (req, res) => {
+exports.delete = async (req, res) => {
   try {
     const layoutId = req.params.id; //Getting layoutId from Params
-    const data = await Layout2.findByIdAndDelete(layoutId);
+    const data = await Layout.findByIdAndDelete(layoutId);
     if(data){
       return res.json({
         success: true,
-        message: "Layout2 Data Deleted Sucessfully",
+        message: "Layout Data Deleted Sucessfully",
       });
     } else {
       res.status(200).json({ success: true, message: "Invalid ID" });
@@ -134,3 +134,15 @@ const Layout2 = require("../models/Layout2");
     res.status(500).json({ success: false, message: "Internal server error" });
   }
 };
+
+
+
+
+
+
+
+
+
+
+
+ 

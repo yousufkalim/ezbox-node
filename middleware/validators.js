@@ -108,29 +108,19 @@ exports.homeScreenValidate = [
   check("text").notEmpty().withMessage("Text is required"),
   check("yt_link").notEmpty().withMessage("Invalid Youtube URL"),
 ];
-exports.layout1Validate = [
-  check("title").notEmpty().withMessage("Title is required"),
-  check("text").notEmpty().withMessage("Text is required"),
-  check("textbottom").notEmpty().withMessage("Bottom text is required"),
-  check("leftImg").notEmpty().withMessage("Left Image is required"),
-  check("centerImg").notEmpty().withMessage("Center Image is required"),
-  check("rightImg").notEmpty().withMessage("Right image is required"),
+exports.layoutValidate = [
+  // check("title").notEmpty().withMessage("Title is required"),
+  // check("text").notEmpty().withMessage("Text is required"),
+  // check("textbottom").notEmpty().withMessage("Bottom text is required"),
+  // check("leftImg").notEmpty().withMessage("Left Image is required"),
+  // check("centerImg").notEmpty().withMessage("Center Image is required"),
+  // check("rightImg").notEmpty().withMessage("Right image is required"),
 ];
-exports.layout2Validate = [
-  check("text").notEmpty().withMessage("Text is required"),
-  check("leftImg").notEmpty().withMessage("Left Image is required"),
-  check("centerImg").notEmpty().withMessage("Center Image is required"),
-  check("rightImg").notEmpty().withMessage("Right image is required"),
-];
-exports.layout3Validate = [
-  check("text").notEmpty().withMessage("Text is required"),
-  check("textbottom").notEmpty().withMessage("Bottom text is required"),
-];
-exports.appRouteValidate = [
+exports.pageValidate = [
   check("path").notEmpty().withMessage("Path is required"),
   check("name").notEmpty().withMessage("Name is required"),
-  check("lo_type").notEmpty().withMessage("Layout Type is required"),
-  check("lo_id").notEmpty().withMessage("Layout Id is required"),
+  check("layout_type").notEmpty().withMessage("Layout Type is required"),
+  check("layout").notEmpty().withMessage("Layout Id is required"),
 ];
 exports.reviewValidate = [
   check("name").notEmpty().withMessage("name is required"),

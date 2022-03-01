@@ -1,19 +1,19 @@
 /**
- ** Product Development Controller
- * @author Najam Ul Saqib
+ ** Page Controller
  * @author Umar Bin Ayaz
  */
- const Layout3 = require("../models/Layout3");
+ const Page = require("../models/Page");
+ const Layout = require("../models/Layout");
 
  /**
-  ** Get Advertising page data
+  ** Get Page page data
   * @param {object} req
   * @param {object} res
   */
-  exports.getAll = async (req, res) => {
+ exports.getAll = async (req, res) => {
    try {
      //? Find Data
-     const data = await Layout3.find();
+     const data = await Page.find().populate("layout");
      res.json({ success: true, data });
    } catch (err) {
      //? Error handling
@@ -23,15 +23,15 @@
  };
  
  /**
-  ** Get Layout1 page data
+  ** Get Page page data
   * @param {object} req
   * @param {object} res
   */
   exports.getById = async (req, res) => {
    try {
      //? Find Data
-     const layoutId = req.params.id; //Getting layoutId from Params
-     const data = await Layout3.findById(layoutId);
+     const pageId = req.params.id; //Getting PageId from Params
+     const data = await Page.findById(pageId).populate("layout");
      if(data){
        res.json({ success: true, data });
      } else {
@@ -51,22 +51,23 @@
   */
   exports.create = async (req, res) => {
    try {
-     if (req.files) {
-       //? if request have files.
-       let images = req.files;
-       let filePaths = []; //? empty array for file paths
-       images.forEach((image) => {
-         if (image.fieldname === "image") {
-           filePaths.push(image.path); //? pushing paths in array
-         }
-       });
-       req.body.image = filePaths; //? assign paths to body.image
+     const layoutId = req.body.layout;
+
+     const layout = await Layout.findById(
+      layoutId
+     );
+
+     if(!layout){
+      return res.json({
+        success: false,
+        message: "Invalid Layout.",
+      });
      }
-     //? if layout1 page donot have data.
-     await Layout3.create(req.body).then(() => {
+
+     await Page.create(req.body).then(() => {
        return res.json({
          success: true,
-         message: "Layout3 Data Uploaded Sucessfully",
+         message: "Page Data Uploaded Sucessfully",
        });
      });
    } catch (err) {
@@ -77,29 +78,34 @@
  };
  
  /**
-  ** Update Layout1 page data
+  ** Update Page page data
   * @param {object} req
   * @param {object} res
   */
-  exports.update = async (req, res) => {
+ exports.update = async (req, res) => {
    try {
-     const layoutId = req.params.id; //Getting layoutId from Params
-     if (req.files) {
-       //? if request have files.
-       let images = req.files;
-       let filePaths = []; //? empty array for file paths
-       images.forEach((image) => {
-         if (image.fieldname === "image") {
-           filePaths.push(image.path); //? pushing paths in array
-         }
-       });
-       req.body.image = filePaths; //? assign paths to body.image
+
+     const layoutId = req.body.layout;
+
+     if(layoutId){
+      const layout = await Layout.findById(
+        layoutId
+       );
+  
+       if(!layout){
+        return res.json({
+          success: false,
+          message: "Invalid Layout.",
+        });
+       }
      }
-     const data = await Layout3.findByIdAndUpdate(layoutId, req.body);
+
+     const pageId = req.params.id; //Getting PageId from Params
+     const data = await Page.findByIdAndUpdate(pageId, req.body);
      if(data){
        return res.json({
          success: true,
-         message: "Layout3 Data Updated Sucessfully",
+         message: "Page Data Updated Sucessfully",
        });
      } else {
        res.status(200).json({ success: true, message: "Invalid ID" });
@@ -116,14 +122,14 @@
   * @param {object} req
   * @param {object} res
   */
-  exports.delete = async (req, res) => {
+ exports.delete = async (req, res) => {
    try {
-     const layoutId = req.params.id; //Getting layoutId from Params
-     const data = await Layout3.findByIdAndDelete(layoutId);
+     const pageId = req.params.id; //Getting PageId from Params
+     const data = await Page.findByIdAndDelete(pageId);
      if(data){
        return res.json({
          success: true,
-         message: "Layout3 Data Deleted Sucessfully",
+         message: "Page Data Deleted Sucessfully",
        });
      } else {
        res.status(200).json({ success: true, message: "Invalid ID" });
@@ -134,4 +140,6 @@
      res.status(500).json({ success: false, message: "Internal server error" });
    }
  };
+ 
+ 
  
