@@ -9,7 +9,6 @@ const router = require("express").Router();
 
 router.use("/auth", require("./auth")); //? All the auth routes
 router.use("/admins", require("./admins")); //? All the auth routes
-router.use("/navigation", require("./navigation")); //? All the navbar routes
 router.use("/homeScreen", require("./homeScreen")); //? All the homeScreen routes
 router.use("/layout1", require("./layout1")); //? All the advertising routes
 router.use("/layout2", require("./layout2")); //? All the productdev routes
