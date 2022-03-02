@@ -1,28 +1,32 @@
 /**
- ** Consulting schema
+ ** Advertising schema
  * @author Najam Ul Saqib
  * @author Umar Bin Ayaz
  */
 const mongoose = require("mongoose");
 
 //* Schema
-const layout3Schema = new mongoose.Schema(
+const layouSchema = new mongoose.Schema(
   {
+    title: {
+      type: String,
+    },
+    title_font: {
+      type: String,
+      default: "Urbanist",
+    },
     text: {
       type: String,
-      require: true,
     },
     text_font: {
       type: String,
       default: "Urbanist",
     },
-    image: {
-      type: String,
-      require: true,
-    },
+    leftImg: String,
+    centerImg: String,
+    rightImg: String,
     textbottom: {
       type: String,
-      require: true,
     },
     textbottom_font: {
       type: String,
@@ -30,8 +34,10 @@ const layout3Schema = new mongoose.Schema(
     },
     contactbutton: {
       type: Boolean,
-      default: true,
     },
+    image: {
+      type: String,
+    }, // Layout3
   },
   {
     timestamps: true,
@@ -39,4 +45,4 @@ const layout3Schema = new mongoose.Schema(
 );
 
 //* Model
-module.exports = mongoose.model("layouts3", layout3Schema);
+module.exports = mongoose.model("layouts", layouSchema);
