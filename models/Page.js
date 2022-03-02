@@ -10,7 +10,6 @@
    {
      path: {
        type: String,
-       unique: true,
        required: false,
      },
      name: {
