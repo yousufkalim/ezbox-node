@@ -27,15 +27,14 @@
   * @param {object} req
   * @param {object} res
   */
-  exports.getById = async (req, res) => {
+  exports.getOne = async (req, res) => {
    try {
      //? Find Data
-     const pageId = req.params.id; //Getting PageId from Params
-     const data = await Page.findById(pageId).populate("layout");
+     const data = await Page.findOne(req.body)?.populate("layout");
      if(data){
        res.json({ success: true, data });
      } else {
-       res.status(200).json({ success: true, message: "Invalid ID" });
+       res.status(200).json({ success: true, message: "Nothing found for this data." });
      }
    } catch (err) {
      //? Error handling
@@ -51,12 +50,31 @@
   */
   exports.create = async (req, res) => {
    try {
+
+     const path = req.body.path;
+
+     if(path){
+      const pathExists = await Page.findOne({
+        path: path
+      });
+ 
+      if(pathExists){
+       return res.json({
+         success: false,
+         message: "Page with this path already exists.",
+       });
+      }
+     }
+
      const layoutBody = req.body.layout;
-     const layout = await Layout.create(layoutBody);
+     let layout;
+     if(layoutBody){
+      layout = await Layout.create(layoutBody);
+     }
 
      await Page.create({
       ...req.body,
-      layout: layout._id
+      layout: layout?._id
      }).then(() => {
        return res.json({
          success: true,
@@ -77,6 +95,21 @@
   */
  exports.update = async (req, res) => {
    try {
+
+     const path = req.body.path;
+
+     if(path){
+      const pathExists = await Page.findOne({
+        path: path
+      });
+ 
+      if(pathExists){
+       return res.json({
+         success: false,
+         message: "Page with this path already exists.",
+       });
+      }
+     }
 
      const layoutBody = req.body.layout;
 

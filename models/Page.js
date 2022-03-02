@@ -10,22 +10,33 @@
    {
      path: {
        type: String,
-       required: true,
+       unique: true,
+       required: false,
      },
      name: {
        type: String,
        required: true,
      },
+     rel: {
+      type: String,
+      enum: ["internal", "external"],
+      required: true, // For static pages
+      default: "internal"
+     },
      layout_type: {
       type: String,
       enum: ["type1", "type2", "type3"],
-      required: true,
-    },
+      required: false, // For static pages
+     },
      layout: {
        type: mongoose.Schema.Types.ObjectId,
        ref: "layouts",
-       required: true,
-     }
+       required: false, // For static pages
+     },
+     url: {
+      type: String,
+      required: false,
+     },
    },
    {
      timestamps: true,

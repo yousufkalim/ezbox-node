@@ -117,10 +117,10 @@ exports.layoutValidate = [
   // check("rightImg").notEmpty().withMessage("Right image is required"),
 ];
 exports.pageValidate = [
-  check("path").notEmpty().withMessage("Path is required"),
+  // check("path").notEmpty().withMessage("Path is required"),
   check("name").notEmpty().withMessage("Name is required"),
-  check("layout_type").notEmpty().withMessage("Layout Type is required"),
-  check("layout").notEmpty().withMessage("Layout Id is required"),
+  // check("layout_type").notEmpty().withMessage("Layout Type is required"),
+  // check("layout").notEmpty().withMessage("Layout Id is required"),
 ];
 exports.reviewValidate = [
   check("name").notEmpty().withMessage("name is required"),

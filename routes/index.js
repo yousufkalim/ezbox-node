@@ -11,7 +11,6 @@ router.use("/auth", require("./auth")); //? All the auth routes
 router.use("/admins", require("./admins")); //? All the auth routes
 router.use("/navigation", require("./navigation")); //? All the navbar routes
 router.use("/homeScreen", require("./homeScreen")); //? All the homeScreen routes
-router.use("/layout", require("./layout")); //? All the layout routes
 router.use("/pages", require("./pages")); //? All the pages routes
 router.use("/product", require("./products")); //? All the Product routes
 router.use("/contact", require("./contactUs")); //? All the contact
