@@ -59,7 +59,7 @@
       });
  
       if(pathExists){
-       return res.json({
+       return res.status(400).json({
          success: false,
          message: "Page with this path already exists.",
        });
@@ -125,7 +125,7 @@
       // As it is not possible to modify _id of objects, it will raise RT exception.
 
       if(!layout){
-        return res.json({
+        return res.status(400).json({
           success: false,
           message: "Invalid Layout ID.",
         });

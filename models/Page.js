@@ -10,7 +10,6 @@
    {
      path: {
        type: String,
-       unique: true,
        required: false,
      },
      name: {
@@ -32,11 +31,7 @@
        type: mongoose.Schema.Types.ObjectId,
        ref: "layouts",
        required: false, // For static pages
-     },
-     url: {
-      type: String,
-      required: false,
-     },
+     }
    },
    {
      timestamps: true,
