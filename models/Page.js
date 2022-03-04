@@ -12,6 +12,10 @@
        type: Boolean,
        default: true,
      },
+     rank: {
+      type: Number,
+      default: 0,
+    },
      path: {
        type: String,
        required: false,
@@ -28,7 +32,7 @@
      },
      layout_type: {
       type: String,
-      enum: ["type1", "type2", "type3"], // For static pages
+      enum: ["", "type1", "type2", "type3"], // For static pages
      },
      layout: {
        type: mongoose.Schema.Types.ObjectId,

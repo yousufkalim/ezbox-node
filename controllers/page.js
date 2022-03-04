@@ -96,6 +96,7 @@
  exports.update = async (req, res) => {
    try {
 
+     const pageId = req.params.id; //Getting PageId from Params
      const path = req.body.path;
 
      if(path){
@@ -103,7 +104,7 @@
         path: path
       });
  
-      if(pathExists){
+      if(pathExists && pathExists._id != pageId){
        return res.json({
          success: false,
          message: "Page with this path already exists.",
@@ -136,7 +137,6 @@
       // March 01, 2022
      }
 
-     const pageId = req.params.id; //Getting PageId from Params
      const data = await Page.findByIdAndUpdate(pageId, req.body);
      if(data){
        return res.json({
