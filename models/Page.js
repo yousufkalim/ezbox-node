@@ -8,6 +8,10 @@
  //* Schema
  const pageSchema = new mongoose.Schema(
    {
+     is_active: {
+       type: Boolean,
+       default: true,
+     },
      path: {
        type: String,
        required: false,
@@ -24,13 +28,11 @@
      },
      layout_type: {
       type: String,
-      enum: ["type1", "type2", "type3"],
-      required: false, // For static pages
+      enum: ["type1", "type2", "type3"], // For static pages
      },
      layout: {
        type: mongoose.Schema.Types.ObjectId,
-       ref: "layouts",
-       required: false, // For static pages
+       ref: "layouts", // For static pages
      }
    },
    {
