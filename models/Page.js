@@ -5,18 +5,26 @@
  */
 const mongoose = require("mongoose");
 
-//* Schema
-const pageSchema = new mongoose.Schema(
-  {
-    path: {
-      type: String,
-      required: false,
+ //* Schema
+ const pageSchema = new mongoose.Schema(
+   {
+     is_active: {
+       type: Boolean,
+       default: true,
+     },
+     rank: {
+      type: Number,
+      default: 0,
     },
-    name: {
-      type: String,
-      required: true,
-    },
-    rel: {
+     path: {
+       type: String,
+       required: false,
+     },
+     name: {
+       type: String,
+       required: true,
+     },
+     rel: {
       type: String,
       enum: ["internal", "external"],
       required: true, // For static pages
@@ -24,19 +32,17 @@ const pageSchema = new mongoose.Schema(
     },
     layout_type: {
       type: String,
-      enum: ["type1", "type2", "type3", ""],
-      required: false, // For static pages
-    },
-    layout: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "layouts",
-      required: false, // For static pages
-    },
-  },
-  {
-    timestamps: true,
-  }
-);
-
-//* Model
-module.exports = mongoose.model("pages", pageSchema);
+      enum: ["", "type1", "type2", "type3"], // For static pages
+     },
+     layout: {
+       type: mongoose.Schema.Types.ObjectId,
+       ref: "layouts", // For static pages
+     }
+   },
+   {
+     timestamps: true,
+   }
+ );
+ 
+ //* Model
+ module.exports = mongoose.model("pages", pageSchema);

@@ -5,45 +5,43 @@
 const Page = require("../models/Page");
 const Layout = require("../models/Layout");
 
-/**
- ** Get Page page data
- * @param {object} req
- * @param {object} res
- */
-exports.getAll = async (req, res) => {
-  try {
-    //? Find Data
-    const data = await Page.find().populate("layout");
-    res.json({ success: true, data });
-  } catch (err) {
-    //? Error handling
-    console.log("Error ----> ", err);
-    res.status(500).json({ success: false, message: "Internal server error" });
-  }
-};
-
-/**
- ** Get Page page data
- * @param {object} req
- * @param {object} res
- */
-exports.getOne = async (req, res) => {
-  try {
-    //? Find Data
-    const data = await Page.findOne(req.body)?.populate("layout");
-    if (data) {
-      res.json({ success: true, data });
-    } else {
-      res
-        .status(200)
-        .json({ success: true, message: "Nothing found for this data." });
-    }
-  } catch (err) {
-    //? Error handling
-    console.log("Error ----> ", err);
-    res.status(500).json({ success: false, message: "Internal server error" });
-  }
-};
+ /**
+  ** Get Page page data
+  * @param {object} req
+  * @param {object} res
+  */
+ exports.getAll = async (req, res) => {
+   try {
+     //? Find Data
+     const data = await Page.find({ is_active: true }).populate("layout");
+     res.json({ success: true, data });
+   } catch (err) {
+     //? Error handling
+     console.log("Error ----> ", err);
+     res.status(500).json({ success: false, message: "Internal server error" });
+   }
+ };
+ 
+ /**
+  ** Get Page page data
+  * @param {object} req
+  * @param {object} res
+  */
+  exports.getOne = async (req, res) => {
+   try {
+     //? Find Data
+     const data = await Page.findOne(req.body)?.populate("layout");
+     if(data){
+       res.json({ success: true, data });
+     } else {
+       res.status(200).json({ success: true, message: "Nothing found for this data." });
+     }
+   } catch (err) {
+     //? Error handling
+     console.log("Error ----> ", err);
+     res.status(500).json({ success: false, message: "Internal server error" });
+   }
+ };
 
 /**
  ** Create
@@ -96,19 +94,19 @@ exports.create = async (req, res) => {
  */
 exports.update = async (req, res) => {
   try {
-    const path = req.body.path;
     const pageId = req.params.id; //Getting PageId from Params
+     const path = req.body.path;
 
     if (path) {
       const pathExists = await Page.findOne({
         path: path,
       });
-
-      if (pathExists._id != pageId) {
-        return res.status(400).json({
-          success: false,
-          message: "Page with this path already exists.",
-        });
+ 
+      if(pathExists && pathExists._id != pageId){
+       return res.json({
+         success: false,
+         message: "Page with this path already exists.",
+       });
       }
     }
 
@@ -134,43 +132,43 @@ exports.update = async (req, res) => {
       // March 01, 2022
     }
 
-    const data = await Page.findByIdAndUpdate(pageId, req.body);
-    if (data) {
-      return res.json({
-        success: true,
-        message: "Page Data Updated Sucessfully",
-      });
-    } else {
-      res.status(200).json({ success: true, message: "Invalid ID" });
-    }
-  } catch (err) {
-    //? Error handling
-    console.log("Error ----> ", err);
-    res.status(500).json({ success: false, message: "Internal server error" });
-  }
-};
-
-/**
- ** Delete
- * @param {object} req
- * @param {object} res
- */
-exports.delete = async (req, res) => {
-  try {
-    const pageId = req.params.id; //Getting PageId from Params
-    const dataPage = await Page.findByIdAndDelete(pageId);
-    const datalayout = await Layout.findByIdAndDelete(dataPage.layout);
-    if (dataPage && datalayout) {
-      return res.json({
-        success: true,
-        message: "Page Data Deleted Sucessfully",
-      });
-    } else {
-      res.status(200).json({ success: true, message: "Invalid ID" });
-    }
-  } catch (err) {
-    //? Error handling
-    console.log("Error ----> ", err);
-    res.status(500).json({ success: false, message: "Internal server error" });
-  }
-};
+     const data = await Page.findByIdAndUpdate(pageId, req.body);
+     if(data){
+       return res.json({
+         success: true,
+         message: "Page Data Updated Sucessfully",
+       });
+     } else {
+       res.status(200).json({ success: true, message: "Invalid ID" });
+     }
+   } catch (err) {
+     //? Error handling
+     console.log("Error ----> ", err);
+     res.status(500).json({ success: false, message: "Internal server error" });
+   }
+ };
+ 
+ /**
+  ** Delete
+  * @param {object} req
+  * @param {object} res
+  */
+ exports.delete = async (req, res) => {
+   try {
+     const pageId = req.params.id; //Getting PageId from Params
+     const dataPage = await Page.findByIdAndDelete(pageId);
+     const datalayout = await Layout.findByIdAndDelete(dataPage.layout);
+     if(dataPage && datalayout){
+       return res.json({
+         success: true,
+         message: "Page Data Deleted Sucessfully",
+       });
+     } else {
+       res.status(200).json({ success: true, message: "Invalid ID" });
+     }
+   } catch (err) {
+     //? Error handling
+     console.log("Error ----> ", err);
+     res.status(500).json({ success: false, message: "Internal server error" });
+   }
+ };
