@@ -13,7 +13,7 @@
  exports.getAll = async (req, res) => {
    try {
      //? Find Data
-     const data = await Page.find({ is_active: true }).populate("layout");
+     const data = await Page.find({ is_active: true, ...req.body }).populate("layout");
      res.json({ success: true, data });
    } catch (err) {
      //? Error handling

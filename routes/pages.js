@@ -22,7 +22,7 @@
   */
  
  //* Read
- router.get("/", page.getAll); //? Get All Page data
+ router.post("/", page.getAll); //? Get All Page data
  router.post("/get_one", page.getOne); //? Get Single Page data
  
  router.post(
