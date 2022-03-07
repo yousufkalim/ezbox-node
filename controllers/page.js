@@ -50,6 +50,7 @@ const Layout = require("../models/Layout");
  */
 exports.create = async (req, res) => {
   try {
+
     const path = req.body.path;
 
     if (path) {
@@ -83,7 +84,7 @@ exports.create = async (req, res) => {
   } catch (err) {
     //? Error handling
     console.log("Error ----> ", err);
-    res.status(500).json({ success: false, message: "Internal server error" });
+    res.status(500).json({ success: false, message: "Internal server errorxyz" });
   }
 };
 
