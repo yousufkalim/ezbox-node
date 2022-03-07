@@ -3,7 +3,7 @@
  * @author Najam Ul Saqib
  * @author Umar Bin Ayaz
  */
- const mongoose = require("mongoose");
+const mongoose = require("mongoose");
 
  //* Schema
  const pageSchema = new mongoose.Schema(
@@ -28,9 +28,9 @@
       type: String,
       enum: ["internal", "external", "static"],
       required: true, // For static pages
-      default: "internal"
-     },
-     layout_type: {
+      default: "internal",
+    },
+    layout_type: {
       type: String,
       enum: ["", "type1", "type2", "type3"], // For static pages
      },
@@ -46,4 +46,3 @@
  
  //* Model
  module.exports = mongoose.model("pages", pageSchema);
- 
