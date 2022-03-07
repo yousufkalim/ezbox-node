@@ -26,7 +26,7 @@ const mongoose = require("mongoose");
      },
      rel: {
       type: String,
-      enum: ["internal", "external"],
+      enum: ["internal", "external", "static"],
       required: true, // For static pages
       default: "internal",
     },
