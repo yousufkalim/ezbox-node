@@ -1,6 +1,7 @@
 /**
  ** Home Screen Controller
  * @author Najam Ul Saqib
+ * @author Umar Bin Ayaz
  */
 const HomeScreen = require("../models/HomeScreen");
 

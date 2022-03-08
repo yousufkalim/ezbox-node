@@ -19,6 +19,14 @@ const homeScreenSchema = new mongoose.Schema(
       type: String,
       require: true,
     },
+    background_image: {
+      type: String,
+      require: true,
+    },
+    is_background_image_active: {
+      type: Boolean,
+      default: true,
+    },
     yt_link: {
       type: String,
       require: true,
