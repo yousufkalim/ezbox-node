@@ -84,7 +84,7 @@ exports.create = async (req, res) => {
   } catch (err) {
     //? Error handling
     console.log("Error ----> ", err);
-    res.status(500).json({ success: false, message: "Internal server errorxyz" });
+    res.status(500).json({ success: false, message: "Internal server error" });
   }
 };
 
